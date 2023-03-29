@@ -10,7 +10,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
-        activeImage: 0,
+        activeGame: 0,
         game: {
             title: [
                 "Marvel's Spiderman Miles Morales",
@@ -20,11 +20,11 @@ const { createApp } = Vue
                 "Marvel's Avengers",
             ],
             image: [
-                "img/01.webp",
-                "img/02.webp",
-                "img/03.webp",
-                "img/04.webp",
-                "img/05.webp",
+                "./assets/img/01.webp",
+                "./assets/img/02.webp",
+                "./assets/img/03.webp",
+                "./assets/img/04.webp",
+                "./assets/img/05.webp",
             ],
             text: [
                 "Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.",
@@ -35,5 +35,24 @@ const { createApp } = Vue
             ]
         }
       }
+    },
+    methods: {
+        prev(){
+            console.log("Prev")
+            this.activeGame--;
+            if (this.activeGame < 0){
+                this.activeGame = this.game.image.length - 1
+            }
+        },
+        next(){
+            console.log("Next")
+            this.activeGame++;
+            if (this.activeGame >= this.game.image.length){
+                this.activeGame = 0
+            }
+        },
+        thumbClick(index){
+            this.activeGame = index
+        }
     }
   }).mount('#app')

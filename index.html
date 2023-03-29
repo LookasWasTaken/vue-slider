@@ -10,28 +10,31 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Array Object Carousel & Thumbnail</title>
+    <title>VUE Array Object Carousel & Thumbnail</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
     <div id="app">
 
-        <h1 class="text-center">Array Object Carousel & Thumbnail</h1>
+        <h1 class="text-center">VUE Array Object Carousel & Thumbnail</h1>
         <div class="container my-5">
             <div class="name text-center text-white fs-1">
+                <h3 :class="index === activeGame ? 'active' : ''" v-for="(titolo, index) in game.title">{{titolo}}</h3>
             </div>
         </div>
         <div class="container d-flex justify-content-center">
             <div class="col-9">
                 <div class="images">
+                    <img :class="index === activeGame ? 'active' : ''" :src="img" alt="" v-for="(img, index) in game.image">
                 </div>
             </div>
             <div class="col-3">
                 <div class="thumbnail">
+                    <img :class="index === activeGame ? 'target' : ''" :src="img" alt="" v-for="(img, index) in game.image" @click="thumbClick(index)">
                 </div>
-                <button class="prev"><i class="fa-solid fa-angle-up fa-2x"></i></button>
-                <button class="next"><i class="fa-solid fa-angle-down fa-2x"></i></button>
+                <button class="prev" @click="prev"><i class="fa-solid fa-angle-up fa-2x"></i></button>
+                <button class="next" @click="next"><i class="fa-solid fa-angle-down fa-2x"></i></button>
             </div>
         </div>
         <div class="container-fluid my-5">
@@ -43,6 +46,7 @@
         <div class="container-fluid py-5">
             <div class="col-12">
                 <div class="descriptions text-center text-white">
+                    <h4 :class="index === activeGame ? 'active' : ''" v-for="(descrizione, index) in game.text">{{descrizione}}</h4>
                 </div>
             </div>
             <div class="col-12 text-center py-2">
@@ -56,7 +60,7 @@
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
             crossorigin="anonymous"></script>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script src="./assets/js/main.js"></script>
+        <script src="./assets/js/app.js"></script>
     </div>
 </body>
 
