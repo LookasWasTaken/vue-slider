@@ -1,0 +1,145 @@
+body {
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.images img:not(.active),
+.name h3:not(.active),
+.descriptions h4:not(.active) {
+    display: none;
+}
+
+.active {
+    animation: opacity 0.5s ease-in-out;
+
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.col-3 {
+    position: relative;
+}
+
+h1,
+h3,
+h4 {
+    margin: 5rem 0;
+    color: white;
+    filter: drop-shadow(0 0 5px rgb(24, 143, 227));
+}
+
+.images img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.thumbnail img {
+    width: 100%;
+    max-height: 60px;
+    object-fit: cover;
+}
+
+.target {
+    border: 3px solid rgba(255, 255, 255);
+}
+
+.thumbnail img:not(.target) {
+    filter: brightness(0.5);
+    scale: 0.90;
+}
+
+.thumbnail img:not(.target):hover {
+    cursor: pointer;
+}
+
+.prev,
+.next,
+.sub {
+    border: none;
+    background-color: rgba(232, 182, 182, 0);
+    width: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 25px;
+    transition: all 0.5s;
+    position: absolute;
+    color: white;
+}
+
+.backward,
+.play,
+.stop,
+.forward {
+    border: none;
+    background-color: rgba(232, 182, 182, 0);
+    width: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 25px;
+    transition: all 0.5s;
+    color: white;
+    scale: 2.5;
+    margin: 1rem;
+    filter: drop-shadow(0 0 5px rgb(24, 143, 227));
+}
+
+.backward:active,
+.play:active,
+.stop:active,
+.forward:active {
+    scale: 3;
+    color: black;
+}
+
+
+
+.prev {
+    top: -15%;
+    left: 50%;
+}
+
+.next {
+    bottom: -15%;
+    left: 50%;
+}
+
+button:active {
+    scale: 1.5;
+}
+
+.linksub {
+    animation: shake 3s linear infinite;
+    scale: 1;
+    transition: all 0.5s;
+}
+
+.linksub:hover {
+    scale: 25;
+    color: rgb(87, 7, 87);
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(25deg);
+    }
+
+    75% {
+        transform: rotate(-25deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
