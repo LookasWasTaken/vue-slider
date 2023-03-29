@@ -10,7 +10,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
-        autoplay: "",
+        autoplay: null,
         activeGame: 0,
 /*         game: {
             title: [
