@@ -20,20 +20,20 @@
         <h1 class="text-center">VUE Array Object Carousel & Thumbnail</h1>
         <div class="container my-5">
             <div class="name text-center text-white fs-1">
-                <h3 :class="index === activeGame ? 'active' : ''" v-for="(titolo, index) in game.title">{{titolo}}</h3>
+                <h3 :class="index === activeGame ? 'active' : ''" v-for="(game, index) in games">{{game.title}}</h3>
             </div>
         </div>
         <div class="container d-flex justify-content-center" @mouseover="stopAutoPlay" @mouseleave="startAutoPlay">
             <div class="col-9">
                 <div class="images">
-                    <img :class="index === activeGame ? 'active' : ''" :src="img" alt=""
-                        v-for="(img, index) in game.image">
+                    <img :class="index === activeGame ? 'active' : ''" :src="game.image" alt=""
+                        v-for="(game, index) in games">
                 </div>
             </div>
             <div class="col-3">
                 <div class="thumbnail">
-                    <img :class="index === activeGame ? 'target' : ''" :src="img" alt=""
-                        v-for="(img, index) in game.image" @click="thumbClick(index)">
+                    <img :class="index === activeGame ? 'target' : ''" :src="game.image" alt=""
+                        v-for="(game, index) in games" @click="thumbClick(index)">
                 </div>
                 <button class="prev" @click="prev"><i class="fa-solid fa-angle-up fa-2x"></i></button>
                 <button class="next" @click="next"><i class="fa-solid fa-angle-down fa-2x"></i></button>
@@ -48,8 +48,8 @@
         <div class="container-fluid py-5">
             <div class="col-12">
                 <div class="descriptions text-center text-white">
-                    <h4 :class="index === activeGame ? 'active' : ''" v-for="(descrizione, index) in game.text">
-                        {{descrizione}}</h4>
+                    <h4 :class="index === activeGame ? 'active' : ''" v-for="(game, index) in games">
+                        {{game.descrption}}</h4>
                 </div>
             </div>
         </div>
