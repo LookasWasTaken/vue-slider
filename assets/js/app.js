@@ -53,6 +53,19 @@ const { createApp } = Vue
         },
         thumbClick(index){
             this.activeGame = index
+        },
+        stopAutoPlay(){
+            clearInterval(this.autoPlay)
+        },
+        startAutoPlay(){
+            this.autoPlay = setInterval (() => {
+                this.next();
+            }, 3000);
         }
+    },
+    mounted() {
+        this.autoPlay = setInterval (() => {
+            this.next();
+        }, 3000);
     }
   }).mount('#app')
